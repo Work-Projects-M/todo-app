@@ -22,13 +22,14 @@ class TodoAdapter extends TypeAdapter<Todo> {
       task: fields[2] as String,
       isActive: fields[4] as dynamic,
       categoryId: fields[5] as String?,
+      categoryName: fields[6] as String?,
     );
   }
 
   @override
   void write(BinaryWriter writer, Todo obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(6)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -38,7 +39,9 @@ class TodoAdapter extends TypeAdapter<Todo> {
       ..writeByte(4)
       ..write(obj.isActive)
       ..writeByte(5)
-      ..write(obj.categoryId);
+      ..write(obj.categoryId)
+      ..writeByte(6)
+      ..write(obj.categoryName);
   }
 
   @override
@@ -65,6 +68,7 @@ _$_Todo _$$_TodoFromJson(Map<String, dynamic> json) => _$_Todo(
           ? const CategoryModel()
           : CategoryModel.fromJson(json['category'] as Map<String, dynamic>),
       categoryId: json['categoryId'] as String? ?? "",
+      categoryName: json['categoryName'] as String? ?? "",
     );
 
 Map<String, dynamic> _$$_TodoToJson(_$_Todo instance) => <String, dynamic>{
@@ -74,4 +78,5 @@ Map<String, dynamic> _$$_TodoToJson(_$_Todo instance) => <String, dynamic>{
       'isActive': instance.isActive,
       'category': instance.category,
       'categoryId': instance.categoryId,
+      'categoryName': instance.categoryName,
     };

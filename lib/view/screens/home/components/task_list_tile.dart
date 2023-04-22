@@ -24,6 +24,7 @@ import 'package:todo/models/models.dart';
 
 class TaskListTile extends StatelessWidget {
   final Todo todo;
+
   const TaskListTile({super.key, required this.todo});
 
   @override

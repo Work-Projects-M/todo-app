@@ -48,6 +48,8 @@ class _FadeRoute extends PageRouteBuilder {
     required this.routeName,
   }) : super(
           settings: RouteSettings(name: routeName),
+          transitionDuration: const Duration(milliseconds: 1500),
+          reverseTransitionDuration: const Duration(milliseconds: 1500),
           pageBuilder: (
             BuildContext context,
             Animation<double> animation,

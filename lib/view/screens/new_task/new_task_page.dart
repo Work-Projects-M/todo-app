@@ -135,6 +135,7 @@ class _NewTaskPageState extends State<NewTaskPage> {
       id: const Uuid().v4(),
       category: category,
       categoryId: category.id,
+      categoryName: category.name,
       date: date.millisecondsSinceEpoch,
       isActive: true,
       task: task,

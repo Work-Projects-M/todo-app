@@ -5,6 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:todo/hive/hive.dart';
 import 'package:todo/hive/todo_hive.dart';
 import 'package:todo/models/models.dart';
+import 'package:todo/services/notification_service.dart';
 
 part 'new_task_event.dart';
 part 'new_task_state.dart';
@@ -32,6 +33,7 @@ class NewTaskBloc extends Bloc<NewTaskEvent, NewTaskState> {
       addTask: (value) async {
         await TodoHive.addNewTask(value.todo);
         await CategoryDb.increment(value.todo.category.id);
+        NotificationService.showTimeZonedNotification(value.todo);
       },
     );
   }
