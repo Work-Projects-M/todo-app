@@ -19,6 +19,7 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       centerTitle: false,
       title: const Text('Hello Brenda! \nToday you have 9 tasks'),
       flexibleSpace: FlexibleSpaceBar(

@@ -33,6 +33,7 @@ ThemeData getApplicationTheme() {
       ),
     ),
     textTheme: const TextTheme(
+      labelLarge: TextStyle(fontSize: 15.0),
       displayMedium: TextStyle(
         color: AppColors.indigo,
         fontSize: 22.0,
