@@ -50,62 +50,64 @@ class _NewTaskPageState extends State<NewTaskPage> {
             ),
           ),
           padding: const EdgeInsets.only(top: 42.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                'Add new task',
-                style: Theme.of(context).textTheme.bodyLarge,
-              ),
-              Form(
-                key: _formKey,
-                child: TextFormField(
-                  autofocus: true,
-                  controller: _taskController,
-                  textCapitalization: TextCapitalization.sentences,
-                  validator: AppValidators.general,
-                  style: const TextStyle(
-                    fontSize: 20.0,
-                    color: AppColors.black,
-                    fontWeight: FontWeight.w400,
-                    fontStyle: FontStyle.normal,
-                  ),
-                ).symmetricPadding(h: 26.0),
-              ),
-              // const Divider(),
-              CategoryListWidget(
-                selectedCategory: state.category,
-                categories: HiveBoxes.categoryBox.values.toList(),
-                onCategorySelected: (category) {
-                  _category = category;
-                  context
-                      .read<NewTaskBloc>()
-                      .add(NewTaskEvent.categorySelected(category));
-                },
-              ),
-
-              const Divider(),
-
-              TodoDateWidget(
-                initialDate: state.date,
-                onDateSelected: (date) {
-                  if (date == null) return;
-                  _date = date;
-                  context
-                      .read<NewTaskBloc>()
-                      .add(NewTaskEvent.dateSelected(date));
-                },
-              ).symmetricPadding(h: 26.0),
-              PrimaryButton(
-                label: 'Add task',
-                onPressed: _onPressed,
-                linearGradient: AppColors.linearBlue,
-                margin: const EdgeInsets.symmetric(
-                  horizontal: 26.0,
-                  vertical: 16.0,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  'Add new task',
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
-              ),
-            ],
+                Form(
+                  key: _formKey,
+                  child: TextFormField(
+                    autofocus: true,
+                    controller: _taskController,
+                    textCapitalization: TextCapitalization.sentences,
+                    validator: AppValidators.general,
+                    style: const TextStyle(
+                      fontSize: 20.0,
+                      color: AppColors.black,
+                      fontWeight: FontWeight.w400,
+                      fontStyle: FontStyle.normal,
+                    ),
+                  ).symmetricPadding(h: 26.0),
+                ),
+                // const Divider(),
+                CategoryListWidget(
+                  selectedCategory: state.category,
+                  categories: HiveBoxes.categoryBox.values.toList(),
+                  onCategorySelected: (category) {
+                    _category = category;
+                    context
+                        .read<NewTaskBloc>()
+                        .add(NewTaskEvent.categorySelected(category));
+                  },
+                ),
+
+                const Divider(),
+
+                TodoDateWidget(
+                  initialDate: state.date,
+                  onDateSelected: (date) {
+                    if (date == null) return;
+                    _date = date;
+                    context
+                        .read<NewTaskBloc>()
+                        .add(NewTaskEvent.dateSelected(date));
+                  },
+                ).symmetricPadding(h: 26.0),
+                PrimaryButton(
+                  label: 'Add task',
+                  onPressed: _onPressed,
+                  linearGradient: AppColors.linearBlue,
+                  margin: const EdgeInsets.symmetric(
+                    horizontal: 26.0,
+                    vertical: 16.0,
+                  ),
+                ),
+              ],
+            ),
           ),
         );
       },
