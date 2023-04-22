@@ -14,6 +14,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:todo/core/constants/app_icons.dart';
+import 'package:todo/locator.dart';
 import 'package:todo/models/models.dart';
 import 'package:todo/view/widgets/widgets.dart';
 
@@ -29,6 +30,7 @@ class TasksByCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // key: getIt.get<GlobalKey<ScaffoldState>>(),
       appBar: HomeAppBar(title: category.name),
       body: Builder(
         builder: (context) {

@@ -36,6 +36,7 @@ class _NewTaskPageState extends State<NewTaskPage> {
   final _taskController = TextEditingController();
   CategoryModel? _category;
   DateTime? _date;
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NewTaskBloc, NewTaskState>(

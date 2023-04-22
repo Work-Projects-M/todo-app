@@ -19,6 +19,7 @@ import 'package:todo/blocs/bottom_nav_bar/bottom_nav_bar_bloc.dart';
 import 'package:todo/core/constants/app_colors.dart';
 import 'package:todo/core/constants/app_icons.dart';
 import 'package:todo/hive/hive.dart';
+import 'package:todo/locator.dart';
 import 'package:todo/services/notification_service.dart';
 import 'package:todo/view/screens/dashboard/components/app_bottom_nav_bar.dart';
 import 'package:todo/view/screens/home/home_page.dart';
@@ -53,7 +54,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     int index = context.watch<BottomNavBarBloc>().state.index;
     int taskCount = TodoHive.getCountTasksOfToday();
     return Scaffold(
-      key: _scaffoldKey,
+      key: getIt.get<GlobalKey<ScaffoldState>>(),
       appBar: HomeAppBar(
         title: 'Hello Brenda! \nToday you have $taskCount tasks',
       ),
@@ -61,7 +62,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       floatingActionButton: FloatingActionButton(
         child: SvgPicture.asset(AppIcons.add),
         onPressed: () {
-          NewTaskBottomSheet(_scaffoldKey).show();
+          NewTaskBottomSheet(getIt.get<GlobalKey<ScaffoldState>>()).show();
         },
       ),
       body: _pages[index],
