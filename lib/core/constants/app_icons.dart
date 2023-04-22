@@ -14,6 +14,8 @@
 class AppIcons {
   const AppIcons._();
   static const String home = 'assets/icons/home.svg';
+  static const String abbBar = 'assets/icons/app_bar.svg';
+  static const String abbBarPng = 'assets/icons/app_bar.png';
   static const String add = 'assets/icons/add.svg';
   static const String ball1 = 'assets/icons/ball_1.svg';
   static const String bell2 = 'assets/icons/bell_2.svg';

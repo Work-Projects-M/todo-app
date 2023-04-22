@@ -26,6 +26,12 @@ ThemeData getApplicationTheme() {
         ),
       ),
     ),
+    appBarTheme: const AppBarTheme(
+      titleTextStyle: TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: 18.0,
+      ),
+    ),
     textTheme: const TextTheme(
       displayMedium: TextStyle(
         color: AppColors.indigo,

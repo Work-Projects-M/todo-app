@@ -12,3 +12,4 @@
 */
 export 'empty_widget.dart';
 export 'primary_button.dart';
+export 'home_app_bar.dart';

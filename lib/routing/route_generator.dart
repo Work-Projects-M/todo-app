@@ -32,7 +32,7 @@ class RouteGenerator {
       case RouteNames.home:
         return _FadeRoute(
           child: const DashboardScreen(),
-          routeName: RouteNames.initial,
+          routeName: RouteNames.home,
         );
       default:
         return null;
