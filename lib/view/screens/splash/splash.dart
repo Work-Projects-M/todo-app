@@ -10,3 +10,4 @@
   Documentation: 
 
 */
+export 'splash_screen.dart';

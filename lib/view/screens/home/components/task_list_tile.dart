@@ -20,10 +20,8 @@ import 'package:todo/core/constants/app_icons.dart';
 import 'package:todo/core/extensions/extensions.dart';
 import 'package:todo/core/utils/app_formatter.dart';
 import 'package:todo/hive/hive.dart';
-import 'package:todo/locator.dart';
 import 'package:todo/models/models.dart';
 import 'package:todo/services/notification_service.dart';
-import 'package:todo/view/screens/new_task/components/new_task_bottom_sheet.dart';
 
 class TaskListTile extends StatelessWidget {
   final Todo todo;

@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:todo/hive/hive.dart';
-import 'package:todo/hive/todo_hive.dart';
 import 'package:todo/models/models.dart';
 import 'package:todo/services/notification_service.dart';
 

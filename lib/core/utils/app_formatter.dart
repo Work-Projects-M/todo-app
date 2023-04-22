@@ -11,8 +11,6 @@
 
 */
 
-import 'logger.dart';
-
 class AppFormatter {
   const AppFormatter._();
 

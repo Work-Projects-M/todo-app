@@ -10,3 +10,5 @@
   Documentation: 
 
 */
+
+export 'home_page.dart';

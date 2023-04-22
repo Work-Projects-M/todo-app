@@ -17,7 +17,7 @@ class AppIcons {
   static const String abbBar = 'assets/icons/app_bar.svg';
   static const String abbBarPng = 'assets/icons/app_bar.png';
   static const String add = 'assets/icons/add.svg';
-  static const String ball1 = 'assets/icons/ball_1.svg';
+  static const String bell1 = 'assets/icons/bell_1.svg';
   static const String bell2 = 'assets/icons/bell_2.svg';
   static const String grid = 'assets/icons/grid.svg';
   static const String comment = 'assets/icons/comment.svg';

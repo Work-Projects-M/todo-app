@@ -12,11 +12,16 @@
 */
 import 'package:flutter/material.dart';
 import 'package:todo/core/core.dart';
-import 'package:todo/services/notification_service.dart';
+import 'package:todo/view/widgets/widgets.dart';
 
 class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
   final String title;
-  const HomeAppBar({super.key, required this.title});
+  final ReminderWidget? reminderWidget;
+  const HomeAppBar({
+    super.key,
+    required this.title,
+    required this.reminderWidget,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -37,15 +42,20 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
       ),
       actions: [
         IconButton(
-          onPressed: () async {
-            NotificationService.pendingRequests();
-          },
+          onPressed: () {},
           icon: const CircleAvatar(backgroundColor: AppColors.white),
         ),
       ],
+      bottom: PreferredSize(
+        child: reminderWidget ?? const SizedBox(),
+        preferredSize: Size(double.infinity, 120.0),
+      ),
     );
   }
 
   @override
-  Size get preferredSize => const Size(double.infinity, 62.0);
+  Size get preferredSize => Size(
+        double.infinity,
+        reminderWidget == null ? 62.0 : 238.0,
+      );
 }

@@ -35,13 +35,11 @@ class TodoHive {
     return box.values.where((task) => task.categoryId == categoryId).toList();
   }
 
-  static int getCountTasksOfToday() {
-    return box.values
-        .where(
-          (task) => AppFormatter.isToday(
-            DateTime.fromMillisecondsSinceEpoch(task.date),
-          ),
-        )
-        .length;
+  static Iterable<Todo> getCountTasksOfToday() {
+    return box.values.where(
+      (task) => AppFormatter.isToday(
+        DateTime.fromMillisecondsSinceEpoch(task.date),
+      ),
+    );
   }
 }

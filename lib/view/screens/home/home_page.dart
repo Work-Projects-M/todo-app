@@ -15,9 +15,6 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:todo/core/constants/app_icons.dart';
 import 'package:todo/hive/hive.dart';
-import 'package:todo/models/models.dart';
-import 'package:todo/view/screens/home/components/task_list_tile.dart';
-import 'package:todo/view/widgets/empty_widget.dart';
 import 'package:todo/view/widgets/widgets.dart';
 
 class HomePage extends StatelessWidget {

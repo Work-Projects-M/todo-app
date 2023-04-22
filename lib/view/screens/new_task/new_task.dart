@@ -10,3 +10,4 @@
   Documentation: 
 
 */
+export 'new_task_page.dart';
