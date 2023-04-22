@@ -12,15 +12,22 @@
 */
 
 import 'package:flutter/material.dart';
+import 'package:todo/view/screens/home/home.dart';
 
 import 'app_route_name.dart';
 import 'package:todo/core/core.dart';
 
 class RouteGenerator {
+  RouteGenerator._();
   static Route? onGenerateRoute(RouteSettings settings) {
     var routingData = settings.name?.getRoutingData;
 
     switch (routingData?.route) {
+      case RouteNames.initial:
+        return _FadeRoute(
+          child: const HomeScreen(),
+          routeName: RouteNames.initial,
+        );
       default:
         return null;
     }

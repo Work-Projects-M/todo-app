@@ -11,6 +11,9 @@
 
 */
 import 'package:flutter/material.dart';
+import 'package:todo/routing/app_navigator.dart';
+import 'package:todo/routing/app_route_name.dart';
+import 'package:todo/routing/route_generator.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
@@ -20,6 +23,9 @@ class AppWidget extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'TODO',
       theme: ThemeData(),
+      initialRoute: RouteNames.initial,
+      onGenerateRoute: RouteGenerator.onGenerateRoute,
+      navigatorKey: AppNavigator.navigatorKey,
     );
   }
 }
