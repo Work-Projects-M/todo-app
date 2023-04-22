@@ -5,7 +5,7 @@ class NewTaskState with _$NewTaskState {
   const factory NewTaskState({
     required String task,
     required CategoryModel category,
-    required DateTime date,
+    required DateTime? date,
   }) = _NewTakState;
   factory NewTaskState.initial({
     String task = '',
@@ -15,6 +15,6 @@ class NewTaskState with _$NewTaskState {
       NewTaskState(
         task: task,
         category: category,
-        date: date ?? DateTime.now(),
+        date: date,
       );
 }

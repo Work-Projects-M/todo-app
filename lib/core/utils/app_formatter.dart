@@ -50,11 +50,22 @@ class AppFormatter {
         formatted = '$hh.$mm $midday';
         break;
 
+      case 'dd hh:mm':
+        String d = setDay(date);
+
+        formatted = '$d $hh:$mm';
+        break;
+
       default:
         formatted = '$day/$month/$year $hh:$mm';
     }
 
     return formatted;
+  }
+
+  static String setDay(DateTime date) {
+    String now = formatDate(DateTime.now());
+    return now == formatDate(date) ? 'Today,' : '';
   }
 
   static String formatDateFromMills(int mills, {String pattern = "MM yyyy"}) {

@@ -26,12 +26,17 @@ ThemeData getApplicationTheme() {
         ),
       ),
     ),
+
+    textSelectionTheme: const TextSelectionThemeData(
+      cursorColor: AppColors.black,
+    ),
     appBarTheme: const AppBarTheme(
       titleTextStyle: TextStyle(
         fontWeight: FontWeight.w400,
         fontSize: 18.0,
       ),
     ),
+
     textTheme: const TextTheme(
       labelLarge: TextStyle(fontSize: 15.0),
       displayMedium: TextStyle(
@@ -47,6 +52,10 @@ ThemeData getApplicationTheme() {
         color: AppColors.indigo,
         fontWeight: FontWeight.w500,
         fontSize: 14.0,
+      ),
+      titleLarge: TextStyle(
+        fontSize: 13.0,
+        fontWeight: FontWeight.w500,
       ),
     ),
 

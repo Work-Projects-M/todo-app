@@ -54,26 +54,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
       floatingActionButton: FloatingActionButton(
         child: SvgPicture.asset(AppIcons.add),
         onPressed: () {
-          // _scaffoldKey.currentState?.showBottomSheet(
-          //   (context) => const NewTaskPage(),
-          //   backgroundColor: AppColors.white,
-          //   shape: const RoundedRectangleBorder(
-          //     borderRadius: BorderRadius.only(
-          //       topRight: Radius.circular(50.0),
-          //       topLeft: Radius.circular(50.0),
-          //     ),
-          //   ),
-          // );
-
-          showModalBottomSheet(
-            backgroundColor: Colors.transparent,
-            context: context,
-            builder: (context) {
-              return BlocProvider(
-                create: (context) => NewTaskBloc(),
-                child: NewTaskPage(),
-              );
-            },
+          _scaffoldKey.currentState?.showBottomSheet(
+            (context) => BlocProvider(
+              create: (context) => NewTaskBloc(),
+              child: const NewTaskPage(),
+            ),
+            elevation: 5.0,
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(50.0),
+                topLeft: Radius.circular(50.0),
+              ),
+            ),
           );
         },
       ),

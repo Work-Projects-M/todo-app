@@ -21,6 +21,7 @@ mixin _$NewTaskEvent {
     required TResult Function() started,
     required TResult Function(CategoryModel category) categorySelected,
     required TResult Function(DateTime dateTime) dateSelected,
+    required TResult Function(Todo todo) addTask,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$NewTaskEvent {
     TResult? Function()? started,
     TResult? Function(CategoryModel category)? categorySelected,
     TResult? Function(DateTime dateTime)? dateSelected,
+    TResult? Function(Todo todo)? addTask,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$NewTaskEvent {
     TResult Function()? started,
     TResult Function(CategoryModel category)? categorySelected,
     TResult Function(DateTime dateTime)? dateSelected,
+    TResult Function(Todo todo)? addTask,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$NewTaskEvent {
     required TResult Function(_Started value) started,
     required TResult Function(_CategorySelected value) categorySelected,
     required TResult Function(_DateSelected value) dateSelected,
+    required TResult Function(_TaskAdding value) addTask,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$NewTaskEvent {
     TResult? Function(_Started value)? started,
     TResult? Function(_CategorySelected value)? categorySelected,
     TResult? Function(_DateSelected value)? dateSelected,
+    TResult? Function(_TaskAdding value)? addTask,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$NewTaskEvent {
     TResult Function(_Started value)? started,
     TResult Function(_CategorySelected value)? categorySelected,
     TResult Function(_DateSelected value)? dateSelected,
+    TResult Function(_TaskAdding value)? addTask,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,6 +126,7 @@ class _$_Started implements _Started {
     required TResult Function() started,
     required TResult Function(CategoryModel category) categorySelected,
     required TResult Function(DateTime dateTime) dateSelected,
+    required TResult Function(Todo todo) addTask,
   }) {
     return started();
   }
@@ -130,6 +137,7 @@ class _$_Started implements _Started {
     TResult? Function()? started,
     TResult? Function(CategoryModel category)? categorySelected,
     TResult? Function(DateTime dateTime)? dateSelected,
+    TResult? Function(Todo todo)? addTask,
   }) {
     return started?.call();
   }
@@ -140,6 +148,7 @@ class _$_Started implements _Started {
     TResult Function()? started,
     TResult Function(CategoryModel category)? categorySelected,
     TResult Function(DateTime dateTime)? dateSelected,
+    TResult Function(Todo todo)? addTask,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -154,6 +163,7 @@ class _$_Started implements _Started {
     required TResult Function(_Started value) started,
     required TResult Function(_CategorySelected value) categorySelected,
     required TResult Function(_DateSelected value) dateSelected,
+    required TResult Function(_TaskAdding value) addTask,
   }) {
     return started(this);
   }
@@ -164,6 +174,7 @@ class _$_Started implements _Started {
     TResult? Function(_Started value)? started,
     TResult? Function(_CategorySelected value)? categorySelected,
     TResult? Function(_DateSelected value)? dateSelected,
+    TResult? Function(_TaskAdding value)? addTask,
   }) {
     return started?.call(this);
   }
@@ -174,6 +185,7 @@ class _$_Started implements _Started {
     TResult Function(_Started value)? started,
     TResult Function(_CategorySelected value)? categorySelected,
     TResult Function(_DateSelected value)? dateSelected,
+    TResult Function(_TaskAdding value)? addTask,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -265,6 +277,7 @@ class _$_CategorySelected implements _CategorySelected {
     required TResult Function() started,
     required TResult Function(CategoryModel category) categorySelected,
     required TResult Function(DateTime dateTime) dateSelected,
+    required TResult Function(Todo todo) addTask,
   }) {
     return categorySelected(category);
   }
@@ -275,6 +288,7 @@ class _$_CategorySelected implements _CategorySelected {
     TResult? Function()? started,
     TResult? Function(CategoryModel category)? categorySelected,
     TResult? Function(DateTime dateTime)? dateSelected,
+    TResult? Function(Todo todo)? addTask,
   }) {
     return categorySelected?.call(category);
   }
@@ -285,6 +299,7 @@ class _$_CategorySelected implements _CategorySelected {
     TResult Function()? started,
     TResult Function(CategoryModel category)? categorySelected,
     TResult Function(DateTime dateTime)? dateSelected,
+    TResult Function(Todo todo)? addTask,
     required TResult orElse(),
   }) {
     if (categorySelected != null) {
@@ -299,6 +314,7 @@ class _$_CategorySelected implements _CategorySelected {
     required TResult Function(_Started value) started,
     required TResult Function(_CategorySelected value) categorySelected,
     required TResult Function(_DateSelected value) dateSelected,
+    required TResult Function(_TaskAdding value) addTask,
   }) {
     return categorySelected(this);
   }
@@ -309,6 +325,7 @@ class _$_CategorySelected implements _CategorySelected {
     TResult? Function(_Started value)? started,
     TResult? Function(_CategorySelected value)? categorySelected,
     TResult? Function(_DateSelected value)? dateSelected,
+    TResult? Function(_TaskAdding value)? addTask,
   }) {
     return categorySelected?.call(this);
   }
@@ -319,6 +336,7 @@ class _$_CategorySelected implements _CategorySelected {
     TResult Function(_Started value)? started,
     TResult Function(_CategorySelected value)? categorySelected,
     TResult Function(_DateSelected value)? dateSelected,
+    TResult Function(_TaskAdding value)? addTask,
     required TResult orElse(),
   }) {
     if (categorySelected != null) {
@@ -406,6 +424,7 @@ class _$_DateSelected implements _DateSelected {
     required TResult Function() started,
     required TResult Function(CategoryModel category) categorySelected,
     required TResult Function(DateTime dateTime) dateSelected,
+    required TResult Function(Todo todo) addTask,
   }) {
     return dateSelected(dateTime);
   }
@@ -416,6 +435,7 @@ class _$_DateSelected implements _DateSelected {
     TResult? Function()? started,
     TResult? Function(CategoryModel category)? categorySelected,
     TResult? Function(DateTime dateTime)? dateSelected,
+    TResult? Function(Todo todo)? addTask,
   }) {
     return dateSelected?.call(dateTime);
   }
@@ -426,6 +446,7 @@ class _$_DateSelected implements _DateSelected {
     TResult Function()? started,
     TResult Function(CategoryModel category)? categorySelected,
     TResult Function(DateTime dateTime)? dateSelected,
+    TResult Function(Todo todo)? addTask,
     required TResult orElse(),
   }) {
     if (dateSelected != null) {
@@ -440,6 +461,7 @@ class _$_DateSelected implements _DateSelected {
     required TResult Function(_Started value) started,
     required TResult Function(_CategorySelected value) categorySelected,
     required TResult Function(_DateSelected value) dateSelected,
+    required TResult Function(_TaskAdding value) addTask,
   }) {
     return dateSelected(this);
   }
@@ -450,6 +472,7 @@ class _$_DateSelected implements _DateSelected {
     TResult? Function(_Started value)? started,
     TResult? Function(_CategorySelected value)? categorySelected,
     TResult? Function(_DateSelected value)? dateSelected,
+    TResult? Function(_TaskAdding value)? addTask,
   }) {
     return dateSelected?.call(this);
   }
@@ -460,6 +483,7 @@ class _$_DateSelected implements _DateSelected {
     TResult Function(_Started value)? started,
     TResult Function(_CategorySelected value)? categorySelected,
     TResult Function(_DateSelected value)? dateSelected,
+    TResult Function(_TaskAdding value)? addTask,
     required TResult orElse(),
   }) {
     if (dateSelected != null) {
@@ -479,10 +503,165 @@ abstract class _DateSelected implements NewTaskEvent {
 }
 
 /// @nodoc
+abstract class _$$_TaskAddingCopyWith<$Res> {
+  factory _$$_TaskAddingCopyWith(
+          _$_TaskAdding value, $Res Function(_$_TaskAdding) then) =
+      __$$_TaskAddingCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Todo todo});
+
+  $TodoCopyWith<$Res> get todo;
+}
+
+/// @nodoc
+class __$$_TaskAddingCopyWithImpl<$Res>
+    extends _$NewTaskEventCopyWithImpl<$Res, _$_TaskAdding>
+    implements _$$_TaskAddingCopyWith<$Res> {
+  __$$_TaskAddingCopyWithImpl(
+      _$_TaskAdding _value, $Res Function(_$_TaskAdding) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? todo = null,
+  }) {
+    return _then(_$_TaskAdding(
+      null == todo
+          ? _value.todo
+          : todo // ignore: cast_nullable_to_non_nullable
+              as Todo,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TodoCopyWith<$Res> get todo {
+    return $TodoCopyWith<$Res>(_value.todo, (value) {
+      return _then(_value.copyWith(todo: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_TaskAdding implements _TaskAdding {
+  const _$_TaskAdding(this.todo);
+
+  @override
+  final Todo todo;
+
+  @override
+  String toString() {
+    return 'NewTaskEvent.addTask(todo: $todo)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_TaskAdding &&
+            (identical(other.todo, todo) || other.todo == todo));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, todo);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_TaskAddingCopyWith<_$_TaskAdding> get copyWith =>
+      __$$_TaskAddingCopyWithImpl<_$_TaskAdding>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(CategoryModel category) categorySelected,
+    required TResult Function(DateTime dateTime) dateSelected,
+    required TResult Function(Todo todo) addTask,
+  }) {
+    return addTask(todo);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(CategoryModel category)? categorySelected,
+    TResult? Function(DateTime dateTime)? dateSelected,
+    TResult? Function(Todo todo)? addTask,
+  }) {
+    return addTask?.call(todo);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(CategoryModel category)? categorySelected,
+    TResult Function(DateTime dateTime)? dateSelected,
+    TResult Function(Todo todo)? addTask,
+    required TResult orElse(),
+  }) {
+    if (addTask != null) {
+      return addTask(todo);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_CategorySelected value) categorySelected,
+    required TResult Function(_DateSelected value) dateSelected,
+    required TResult Function(_TaskAdding value) addTask,
+  }) {
+    return addTask(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_CategorySelected value)? categorySelected,
+    TResult? Function(_DateSelected value)? dateSelected,
+    TResult? Function(_TaskAdding value)? addTask,
+  }) {
+    return addTask?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_CategorySelected value)? categorySelected,
+    TResult Function(_DateSelected value)? dateSelected,
+    TResult Function(_TaskAdding value)? addTask,
+    required TResult orElse(),
+  }) {
+    if (addTask != null) {
+      return addTask(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TaskAdding implements NewTaskEvent {
+  const factory _TaskAdding(final Todo todo) = _$_TaskAdding;
+
+  Todo get todo;
+  @JsonKey(ignore: true)
+  _$$_TaskAddingCopyWith<_$_TaskAdding> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$NewTaskState {
   String get task => throw _privateConstructorUsedError;
   CategoryModel get category => throw _privateConstructorUsedError;
-  DateTime get date => throw _privateConstructorUsedError;
+  DateTime? get date => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $NewTaskStateCopyWith<NewTaskState> get copyWith =>
@@ -495,7 +674,7 @@ abstract class $NewTaskStateCopyWith<$Res> {
           NewTaskState value, $Res Function(NewTaskState) then) =
       _$NewTaskStateCopyWithImpl<$Res, NewTaskState>;
   @useResult
-  $Res call({String task, CategoryModel category, DateTime date});
+  $Res call({String task, CategoryModel category, DateTime? date});
 
   $CategoryModelCopyWith<$Res> get category;
 }
@@ -515,7 +694,7 @@ class _$NewTaskStateCopyWithImpl<$Res, $Val extends NewTaskState>
   $Res call({
     Object? task = null,
     Object? category = null,
-    Object? date = null,
+    Object? date = freezed,
   }) {
     return _then(_value.copyWith(
       task: null == task
@@ -526,10 +705,10 @@ class _$NewTaskStateCopyWithImpl<$Res, $Val extends NewTaskState>
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as CategoryModel,
-      date: null == date
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
     ) as $Val);
   }
 
@@ -550,7 +729,7 @@ abstract class _$$_NewTakStateCopyWith<$Res>
       __$$_NewTakStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String task, CategoryModel category, DateTime date});
+  $Res call({String task, CategoryModel category, DateTime? date});
 
   @override
   $CategoryModelCopyWith<$Res> get category;
@@ -569,7 +748,7 @@ class __$$_NewTakStateCopyWithImpl<$Res>
   $Res call({
     Object? task = null,
     Object? category = null,
-    Object? date = null,
+    Object? date = freezed,
   }) {
     return _then(_$_NewTakState(
       task: null == task
@@ -580,10 +759,10 @@ class __$$_NewTakStateCopyWithImpl<$Res>
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as CategoryModel,
-      date: null == date
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
     ));
   }
 }
@@ -599,7 +778,7 @@ class _$_NewTakState implements _NewTakState {
   @override
   final CategoryModel category;
   @override
-  final DateTime date;
+  final DateTime? date;
 
   @override
   String toString() {
@@ -631,14 +810,14 @@ abstract class _NewTakState implements NewTaskState {
   const factory _NewTakState(
       {required final String task,
       required final CategoryModel category,
-      required final DateTime date}) = _$_NewTakState;
+      required final DateTime? date}) = _$_NewTakState;
 
   @override
   String get task;
   @override
   CategoryModel get category;
   @override
-  DateTime get date;
+  DateTime? get date;
   @override
   @JsonKey(ignore: true)
   _$$_NewTakStateCopyWith<_$_NewTakState> get copyWith =>

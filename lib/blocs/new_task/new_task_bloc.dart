@@ -23,8 +23,11 @@ class NewTaskBloc extends Bloc<NewTaskEvent, NewTaskState> {
         emit(state.copyWith(category: value.category));
       },
       dateSelected: (value) {
-        emit(state.copyWith(date: value.dateTime));
+        emit(
+          state.copyWith(date: value.dateTime),
+        );
       },
+      addTask: (value) {},
     );
   }
 }

@@ -6,4 +6,5 @@ class NewTaskEvent with _$NewTaskEvent {
   const factory NewTaskEvent.categorySelected(CategoryModel category) =
       _CategorySelected;
   const factory NewTaskEvent.dateSelected(DateTime dateTime) = _DateSelected;
+  const factory NewTaskEvent.addTask(Todo todo) = _TaskAdding;
 }
