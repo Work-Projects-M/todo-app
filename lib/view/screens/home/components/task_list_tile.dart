@@ -107,9 +107,9 @@ class TaskListTile extends StatelessWidget {
                 );
 
                 if (todo.isActive) {
-                  NotificationService.showTimeZonedNotification(todo);
-                } else {
                   NotificationService.cancel(todo.id.hashCode);
+                } else {
+                  NotificationService.showTimeZonedNotification(todo);
                 }
               },
               icon: SvgPicture.asset(

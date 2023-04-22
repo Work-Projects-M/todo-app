@@ -12,6 +12,7 @@
 */
 import 'package:flutter/material.dart';
 import 'package:todo/core/core.dart';
+import 'package:todo/services/notification_service.dart';
 import 'package:todo/view/widgets/widgets.dart';
 
 class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
@@ -42,7 +43,9 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
       ),
       actions: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            // NotificationService.pendingRequests();
+          },
           icon: const CircleAvatar(backgroundColor: AppColors.white),
         ),
       ],

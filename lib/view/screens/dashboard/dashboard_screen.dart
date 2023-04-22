@@ -19,12 +19,10 @@ import 'package:todo/blocs/bottom_nav_bar/bottom_nav_bar_bloc.dart';
 import 'package:todo/core/constants/app_icons.dart';
 import 'package:todo/hive/hive.dart';
 import 'package:todo/locator.dart';
-import 'package:todo/models/todo/todo.dart';
 import 'package:todo/services/notification_service.dart';
 import 'package:todo/view/widgets/widgets.dart';
 import 'components/components.dart';
 import 'package:todo/view/screens/new_task/components/new_task_bottom_sheet.dart';
-import 'package:todo/view/widgets/home_app_bar.dart';
 import 'package:todo/view/screens/screens.dart';
 
 class DashboardScreen extends StatefulWidget {

@@ -27,7 +27,7 @@ class NotificationService {
   static FlutterLocalNotificationsPlugin get notificationPlugin =>
       _flutterLocalNotificationsPlugin;
 
-  static const AndroidInitializationSettings _androidSettings =
+  static const _androidSettings =
       AndroidInitializationSettings('@mipmap/ic_launcher');
 
   static const DarwinInitializationSettings _iOSSettings =
@@ -68,7 +68,7 @@ class NotificationService {
         iOS: _iOSSettings,
       ),
       onDidReceiveNotificationResponse: (details) {
-        String? payload = details.payload;
+        // String? payload = details.payload;
       },
     );
   }
@@ -101,7 +101,6 @@ class NotificationService {
   static Future<void> showTimeZonedNotification(
     Todo todo,
   ) async {
-    Log.d(todo.id.hashCode, name: 'notification_service');
     tz.initializeTimeZones();
 
     tz.Location location = tz.getLocation("Asia/Tashkent");
@@ -109,8 +108,11 @@ class NotificationService {
       location,
       todo.date,
     );
+    int id = todo.id.hashCode;
+    Log.d(id, name: 'notification_service');
+
     _flutterLocalNotificationsPlugin.zonedSchedule(
-      todo.id.hashCode,
+      id,
       todo.categoryName,
       todo.task,
       dateTime,
@@ -152,7 +154,7 @@ class NotificationService {
   }
 
   static Future<void> cancel(int id) async {
-    Log.d(id.hashCode, name: 'notification_service');
+    Log.d(id, name: 'notification_service.cancel');
     _flutterLocalNotificationsPlugin.cancel(id);
   }
 
