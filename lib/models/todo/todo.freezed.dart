@@ -29,6 +29,8 @@ mixin _$Todo {
   @HiveField(4)
   dynamic get isActive => throw _privateConstructorUsedError;
   CategoryModel get category => throw _privateConstructorUsedError;
+  @HiveField(5)
+  String? get categoryId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,7 +47,8 @@ abstract class $TodoCopyWith<$Res> {
       @HiveField(1) int date,
       @HiveField(2) String task,
       @HiveField(4) dynamic isActive,
-      CategoryModel category});
+      CategoryModel category,
+      @HiveField(5) String? categoryId});
 
   $CategoryModelCopyWith<$Res> get category;
 }
@@ -68,6 +71,7 @@ class _$TodoCopyWithImpl<$Res, $Val extends Todo>
     Object? task = null,
     Object? isActive = freezed,
     Object? category = null,
+    Object? categoryId = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -90,6 +94,10 @@ class _$TodoCopyWithImpl<$Res, $Val extends Todo>
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as CategoryModel,
+      categoryId: freezed == categoryId
+          ? _value.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
@@ -113,7 +121,8 @@ abstract class _$$_TodoCopyWith<$Res> implements $TodoCopyWith<$Res> {
       @HiveField(1) int date,
       @HiveField(2) String task,
       @HiveField(4) dynamic isActive,
-      CategoryModel category});
+      CategoryModel category,
+      @HiveField(5) String? categoryId});
 
   @override
   $CategoryModelCopyWith<$Res> get category;
@@ -133,6 +142,7 @@ class __$$_TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res, _$_Todo>
     Object? task = null,
     Object? isActive = freezed,
     Object? category = null,
+    Object? categoryId = freezed,
   }) {
     return _then(_$_Todo(
       id: null == id
@@ -152,6 +162,10 @@ class __$$_TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res, _$_Todo>
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as CategoryModel,
+      categoryId: freezed == categoryId
+          ? _value.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -164,7 +178,8 @@ class _$_Todo implements _Todo {
       @HiveField(1) this.date = 0,
       @HiveField(2) this.task = "",
       @HiveField(4) this.isActive = true,
-      this.category = const CategoryModel()});
+      this.category = const CategoryModel(),
+      @HiveField(5) this.categoryId = ""});
 
   factory _$_Todo.fromJson(Map<String, dynamic> json) => _$$_TodoFromJson(json);
 
@@ -187,10 +202,14 @@ class _$_Todo implements _Todo {
   @override
   @JsonKey()
   final CategoryModel category;
+  @override
+  @JsonKey()
+  @HiveField(5)
+  final String? categoryId;
 
   @override
   String toString() {
-    return 'Todo(id: $id, date: $date, task: $task, isActive: $isActive, category: $category)';
+    return 'Todo(id: $id, date: $date, task: $task, isActive: $isActive, category: $category, categoryId: $categoryId)';
   }
 
   @override
@@ -203,13 +222,15 @@ class _$_Todo implements _Todo {
             (identical(other.task, task) || other.task == task) &&
             const DeepCollectionEquality().equals(other.isActive, isActive) &&
             (identical(other.category, category) ||
-                other.category == category));
+                other.category == category) &&
+            (identical(other.categoryId, categoryId) ||
+                other.categoryId == categoryId));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, date, task,
-      const DeepCollectionEquality().hash(isActive), category);
+      const DeepCollectionEquality().hash(isActive), category, categoryId);
 
   @JsonKey(ignore: true)
   @override
@@ -231,7 +252,8 @@ abstract class _Todo implements Todo {
       @HiveField(1) final int date,
       @HiveField(2) final String task,
       @HiveField(4) final dynamic isActive,
-      final CategoryModel category}) = _$_Todo;
+      final CategoryModel category,
+      @HiveField(5) final String? categoryId}) = _$_Todo;
 
   factory _Todo.fromJson(Map<String, dynamic> json) = _$_Todo.fromJson;
 
@@ -249,6 +271,9 @@ abstract class _Todo implements Todo {
   dynamic get isActive;
   @override
   CategoryModel get category;
+  @override
+  @HiveField(5)
+  String? get categoryId;
   @override
   @JsonKey(ignore: true)
   _$$_TodoCopyWith<_$_Todo> get copyWith => throw _privateConstructorUsedError;

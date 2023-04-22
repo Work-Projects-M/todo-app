@@ -49,7 +49,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
     int index = context.watch<BottomNavBarBloc>().state.index;
     return Scaffold(
       key: _scaffoldKey,
-      appBar: const HomeAppBar(),
+      appBar: const HomeAppBar(
+        title: 'Hello Brenda! \nToday you have 9 tasks',
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         child: SvgPicture.asset(AppIcons.add),

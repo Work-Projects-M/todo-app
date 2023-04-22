@@ -12,10 +12,14 @@
 */
 
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:todo/core/constants/app_colors.dart';
 import 'package:todo/core/constants/app_icons.dart';
+import 'package:todo/core/extensions/extensions.dart';
 import 'package:todo/core/utils/app_formatter.dart';
+import 'package:todo/hive/hive.dart';
 import 'package:todo/models/models.dart';
 
 class TaskListTile extends StatelessWidget {
@@ -24,54 +28,83 @@ class TaskListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Row(
+    return Slidable(
+      endActionPane: ActionPane(
+        motion: const ScrollMotion(),
+        extentRatio: .3,
         children: [
-          Container(
-            height: 55.0,
-            width: 4.0,
-            decoration: BoxDecoration(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(12.0),
-                  bottomLeft: Radius.circular(12.0),
-                ),
-                color: Color(todo.category.color)),
+          const SizedBox(width: 12.0),
+          CircleAvatar(
+            backgroundColor: AppColors.indigo.withOpacity(0.3),
+            child: SvgPicture.asset(AppIcons.comment),
+          ).onClick(
+            radius: 50.0,
+            onClick: () {},
           ),
-          Checkbox(
-            value: true,
-            onChanged: (v) {},
+          const SizedBox(width: 12.0),
+          CircleAvatar(
+            backgroundColor: AppColors.red.withOpacity(0.3),
+            child: SvgPicture.asset(AppIcons.trash),
+          ).onClick(
+            radius: 50.0,
+            onClick: () async {
+              await CategoryDb.decrement(todo.category.id);
+              await TodoHive.deleteTask(todo.id);
+              Fluttertoast.showToast(msg: '${todo.task} was deleted');
+            },
           ),
-          Expanded(
-            child: Text.rich(
-              TextSpan(
-                  text: AppFormatter.formatDateFromMills(
-                    todo.date,
-                    pattern: 'hh.mm f',
-                  ),
-                  style: const TextStyle(
-                    color: AppColors.grey,
-                    fontSize: 11.0,
-                    height: 1.4,
-                  ),
-                  children: [
-                    const WidgetSpan(child: SizedBox(width: 12.0)),
-                    TextSpan(
-                      text: todo.task,
-                      style: Theme.of(context).textTheme.titleMedium,
-                    )
-                  ]),
-            ),
-          ),
-          IconButton(
-            splashRadius: 24.0,
-            onPressed: () {},
-            icon: SvgPicture.asset(
-              AppIcons.bell2,
-              colorFilter:
-                  const ColorFilter.mode(AppColors.amber, BlendMode.srcIn),
-            ),
-          )
         ],
+      ),
+      key: ValueKey(todo.id),
+      child: Card(
+        child: Row(
+          children: [
+            Container(
+              height: 55.0,
+              width: 4.0,
+              decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(12.0),
+                    bottomLeft: Radius.circular(12.0),
+                  ),
+                  color: Color(todo.category.color)),
+            ),
+            Checkbox(
+              value: true,
+              onChanged: (v) {},
+            ),
+            Expanded(
+              child: Text.rich(
+                TextSpan(
+                    text: AppFormatter.formatDateFromMills(
+                      todo.date,
+                      pattern: 'hh.mm f',
+                    ),
+                    style: const TextStyle(
+                      color: AppColors.grey,
+                      fontSize: 11.0,
+                      height: 1.4,
+                    ),
+                    children: [
+                      const WidgetSpan(child: SizedBox(width: 12.0)),
+                      TextSpan(
+                        text: todo.task,
+                        style: Theme.of(context).textTheme.titleMedium,
+                      )
+                    ]),
+              ),
+            ),
+            IconButton(
+              splashRadius: 24.0,
+              onPressed: () {},
+              icon: SvgPicture.asset(
+                AppIcons.bell2,
+                colorFilter:
+                    const ColorFilter.mode(AppColors.amber, BlendMode.srcIn),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

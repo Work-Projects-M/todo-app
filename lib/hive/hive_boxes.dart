@@ -19,6 +19,14 @@ class HiveBoxes {
   static final pref = Hive.box(HiveBoxNames.pref);
   static final todoBox = Hive.box<Todo>(HiveBoxNames.todo);
   static final categoryBox = Hive.box<CategoryModel>(HiveBoxNames.category);
+
+  static Future<void> clearAllBoxes() async {
+    await Future.wait([
+      pref.clear(),
+      todoBox.clear(),
+      categoryBox.clear(),
+    ]);
+  }
 }
 
 class HiveBoxNames {

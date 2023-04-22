@@ -14,14 +14,15 @@ import 'package:flutter/material.dart';
 import 'package:todo/core/core.dart';
 
 class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
-  const HomeAppBar({super.key});
+  final String title;
+  const HomeAppBar({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
       centerTitle: false,
-      title: const Text('Hello Brenda! \nToday you have 9 tasks'),
+      title: Text(title),
       flexibleSpace: FlexibleSpaceBar(
         background: Container(
           decoration: const BoxDecoration(
@@ -35,7 +36,7 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
       ),
       actions: [
         IconButton(
-          onPressed: () {},
+          onPressed: () async {},
           icon: const CircleAvatar(backgroundColor: AppColors.white),
         ),
       ],

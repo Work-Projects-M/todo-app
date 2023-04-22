@@ -28,7 +28,7 @@ class TaskPage extends StatelessWidget {
         builder: (context, box, child) {
           return GridView.builder(
             itemCount: box.length,
-            padding: const EdgeInsets.symmetric(horizontal: 13.0),
+            padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 24),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               mainAxisSpacing: 13.0,

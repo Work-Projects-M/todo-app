@@ -12,7 +12,11 @@
 */
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:todo/core/extensions/extensions.dart';
+import 'package:todo/hive/hive.dart';
 import 'package:todo/models/models.dart';
+import 'package:todo/routing/routing.dart';
+import 'package:todo/view/screens/task/task_by_category_screen.dart';
 
 class CategoryWidget extends StatelessWidget {
   final CategoryModel category;
@@ -43,6 +47,11 @@ class CategoryWidget extends StatelessWidget {
           const SizedBox(height: 30.0),
           Text('${category.count} Task')
         ],
+      ).onClick(
+        onClick: () {
+          List<Todo> tasks = TodoHive.getTasksByCategory(category.id);
+          AppNavigator.push(TasksByCategory(category: category, tasks: tasks));
+        },
       ),
     );
   }

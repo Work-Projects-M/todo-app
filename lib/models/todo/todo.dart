@@ -28,6 +28,7 @@ class Todo with _$Todo {
     @HiveField(2) @Default("") String task,
     @HiveField(4) @Default(true) isActive,
     @Default(CategoryModel()) CategoryModel category,
+    @HiveField(5) @Default("") String? categoryId,
   }) = _Todo;
 
   factory Todo.fromJson(Map<String, dynamic> json) => _$TodoFromJson(json);

@@ -134,6 +134,7 @@ class _NewTaskPageState extends State<NewTaskPage> {
     Todo todo = Todo(
       id: const Uuid().v4(),
       category: category,
+      categoryId: category.id,
       date: date.millisecondsSinceEpoch,
       isActive: true,
       task: task,

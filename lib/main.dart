@@ -6,7 +6,9 @@ import 'package:todo/hive/hive.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await HiveService.init();
-
-  runApp(const AppWidget());
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
+  );
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  runApp(const AppWidget());
 }

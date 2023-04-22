@@ -16,7 +16,9 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:todo/core/constants/app_icons.dart';
 import 'package:todo/hive/hive.dart';
 import 'package:todo/models/models.dart';
+import 'package:todo/view/screens/home/components/task_list_tile.dart';
 import 'package:todo/view/widgets/empty_widget.dart';
+import 'package:todo/view/widgets/widgets.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -33,12 +35,7 @@ class HomePage extends StatelessWidget {
             space: 70.0,
           );
         }
-        return ListView.builder(
-          itemBuilder: (context, index) {
-            Todo todo = box.getAt(index)!;
-            return ListTile(title: Text(todo.task));
-          },
-        );
+        return TaskListWidget(tasks: box.values.toList());
       },
     );
   }

@@ -26,6 +26,18 @@ class CategoryDb {
     await box.putAll(entries);
   }
 
-  static CategoryModel getCategoryById(String id) =>
+  static CategoryModel getCategoryById(String? id) =>
       box.get(id) ?? const CategoryModel();
+
+  static Future<void> increment(String categoryId) async {
+    CategoryModel category = getCategoryById(categoryId);
+    int count = category.count;
+    box.put(category.id, category.copyWith(count: count + 1));
+  }
+
+  static Future<void> decrement(String categoryId) async {
+    CategoryModel category = getCategoryById(categoryId);
+    int count = category.count;
+    box.put(category.id, category.copyWith(count: count - 1));
+  }
 }

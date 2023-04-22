@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:todo/hive/hive.dart';
+import 'package:todo/hive/todo_hive.dart';
 import 'package:todo/models/models.dart';
 
 part 'new_task_event.dart';
@@ -27,7 +29,10 @@ class NewTaskBloc extends Bloc<NewTaskEvent, NewTaskState> {
           state.copyWith(date: value.dateTime),
         );
       },
-      addTask: (value) {},
+      addTask: (value) async {
+        await TodoHive.addNewTask(value.todo);
+        await CategoryDb.increment(value.todo.category.id);
+      },
     );
   }
 }
