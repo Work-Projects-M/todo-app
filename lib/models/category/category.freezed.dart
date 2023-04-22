@@ -20,9 +20,13 @@ CategoryModel _$CategoryModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CategoryModel {
+  @HiveField(0)
   String get id => throw _privateConstructorUsedError;
+  @HiveField(1)
   String get name => throw _privateConstructorUsedError;
+  @HiveField(2)
   String get icon => throw _privateConstructorUsedError;
+  @HiveField(3)
   int get color => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,7 +41,11 @@ abstract class $CategoryModelCopyWith<$Res> {
           CategoryModel value, $Res Function(CategoryModel) then) =
       _$CategoryModelCopyWithImpl<$Res, CategoryModel>;
   @useResult
-  $Res call({String id, String name, String icon, int color});
+  $Res call(
+      {@HiveField(0) String id,
+      @HiveField(1) String name,
+      @HiveField(2) String icon,
+      @HiveField(3) int color});
 }
 
 /// @nodoc
@@ -87,7 +95,11 @@ abstract class _$$_CategoryCopyWith<$Res>
       __$$_CategoryCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String name, String icon, int color});
+  $Res call(
+      {@HiveField(0) String id,
+      @HiveField(1) String name,
+      @HiveField(2) String icon,
+      @HiveField(3) int color});
 }
 
 /// @nodoc
@@ -131,22 +143,29 @@ class __$$_CategoryCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Category implements _Category {
   const _$_Category(
-      {this.id = "", this.name = "", this.icon = "", this.color = 0});
+      {@HiveField(0) this.id = "",
+      @HiveField(1) this.name = "",
+      @HiveField(2) this.icon = "",
+      @HiveField(3) this.color = 0});
 
   factory _$_Category.fromJson(Map<String, dynamic> json) =>
       _$$_CategoryFromJson(json);
 
   @override
   @JsonKey()
+  @HiveField(0)
   final String id;
   @override
   @JsonKey()
+  @HiveField(1)
   final String name;
   @override
   @JsonKey()
+  @HiveField(2)
   final String icon;
   @override
   @JsonKey()
+  @HiveField(3)
   final int color;
 
   @override
@@ -185,20 +204,24 @@ class _$_Category implements _Category {
 
 abstract class _Category implements CategoryModel {
   const factory _Category(
-      {final String id,
-      final String name,
-      final String icon,
-      final int color}) = _$_Category;
+      {@HiveField(0) final String id,
+      @HiveField(1) final String name,
+      @HiveField(2) final String icon,
+      @HiveField(3) final int color}) = _$_Category;
 
   factory _Category.fromJson(Map<String, dynamic> json) = _$_Category.fromJson;
 
   @override
+  @HiveField(0)
   String get id;
   @override
+  @HiveField(1)
   String get name;
   @override
+  @HiveField(2)
   String get icon;
   @override
+  @HiveField(3)
   int get color;
   @override
   @JsonKey(ignore: true)

@@ -12,26 +12,42 @@
 */
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:todo/blocs/bottom_nav_bar/bottom_nav_bar_bloc.dart';
 import 'package:todo/core/constants/app_icons.dart';
-import 'package:todo/view/screens/home/components/app_bottom_nav_bar.dart';
+import 'package:todo/view/screens/dashboard/components/app_bottom_nav_bar.dart';
+import 'package:todo/view/screens/home/home_page.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class DashboardScreen extends StatefulWidget {
+  const DashboardScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<DashboardScreen> createState() => _DashboardScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _DashboardScreenState extends State<DashboardScreen> {
+  List<Widget> _pages = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _pages = [
+      const HomePage(),
+      Container(),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
+    int index = context.watch<BottomNavBarBloc>().state.index;
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         child: SvgPicture.asset(AppIcons.add),
         onPressed: () {},
       ),
+      body: _pages[index],
       bottomNavigationBar: const AppBottomNavBar(),
     );
   }

@@ -13,13 +13,17 @@
 
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:todo/hive/hive.dart';
+import 'package:todo/models/models.dart';
 
 class HiveService {
   const HiveService._();
 
   static Future<void> init() async {
     await Hive.initFlutter();
+    Hive.registerAdapter(TodoAdapter());
+    Hive.registerAdapter(CategoryAdapter());
 
     await Hive.openBox(HiveBoxNames.pref);
+    await Hive.openBox<Todo>(HiveBoxNames.todo);
   }
 }

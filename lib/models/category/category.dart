@@ -12,17 +12,20 @@
 */
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hive/hive.dart';
+import 'package:todo/hive/hive.dart';
 
 part 'category.g.dart';
 part 'category.freezed.dart';
 
 @freezed
+@HiveType(typeId: HiveTypes.category, adapterName: HiveAdapters.categoryAdapter)
 class CategoryModel with _$CategoryModel {
   const factory CategoryModel({
-    @Default("") String id,
-    @Default("") String name,
-    @Default("") String icon,
-    @Default(0) int color,
+    @HiveField(0) @Default("") String id,
+    @HiveField(1) @Default("") String name,
+    @HiveField(2) @Default("") String icon,
+    @HiveField(3) @Default(0) int color,
   }) = _Category;
 
   factory CategoryModel.fromJson(Map<String, dynamic> json) =>

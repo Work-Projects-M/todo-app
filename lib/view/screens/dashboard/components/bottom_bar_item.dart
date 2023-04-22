@@ -20,16 +20,19 @@ import 'package:todo/core/constants/constants.dart';
 class BottomBarItem extends StatelessWidget {
   final String icon;
   final int index;
+  final String title;
   const BottomBarItem({
     super.key,
     required this.icon,
     required this.index,
+    required this.title,
   });
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<BottomNavBarBloc, BottomNavBarState>(
       builder: (context, state) {
+        Color color = state.index == index ? AppColors.blue : AppColors.grey;
         return InkWell(
           customBorder: const CircleBorder(),
           onTap: () {
@@ -40,12 +43,23 @@ class BottomBarItem extends StatelessWidget {
           child: Container(
             margin: const EdgeInsets.symmetric(vertical: 4.0),
             padding: const EdgeInsets.all(16.0),
-            child: SvgPicture.asset(
-              icon,
-              colorFilter: ColorFilter.mode(
-                index == state.index ? AppColors.blue : AppColors.grey,
-                BlendMode.srcIn,
-              ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SvgPicture.asset(
+                  icon,
+                  colorFilter: ColorFilter.mode(
+                    color,
+                    BlendMode.srcIn,
+                  ),
+                ),
+                Text(
+                  title,
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        color: color,
+                      ),
+                )
+              ],
             ),
           ),
         );

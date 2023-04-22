@@ -14,4 +14,5 @@
 class HiveTypes {
   const HiveTypes._();
   static const int todo = 0;
+  static const int category = 1;
 }

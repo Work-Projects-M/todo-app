@@ -13,7 +13,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:todo/core/constants/app_icons.dart';
-import 'package:todo/view/screens/home/components/bottom_bar_item.dart';
+import 'package:todo/view/screens/dashboard/components/bottom_bar_item.dart';
 
 class AppBottomNavBar extends StatelessWidget {
   const AppBottomNavBar({super.key});
@@ -24,9 +24,9 @@ class AppBottomNavBar extends StatelessWidget {
       child: Row(
         children: const [
           SizedBox(width: 40.0),
-          BottomBarItem(icon: AppIcons.home, index: 0),
+          BottomBarItem(icon: AppIcons.home, index: 0, title: 'Home'),
           Spacer(),
-          BottomBarItem(icon: AppIcons.grid, index: 1),
+          BottomBarItem(icon: AppIcons.grid, index: 1, title: 'Task'),
           SizedBox(width: 40.0),
         ],
       ),

@@ -20,9 +20,13 @@ Todo _$TodoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Todo {
+  @HiveField(0)
   String get id => throw _privateConstructorUsedError;
+  @HiveField(1)
   String get date => throw _privateConstructorUsedError;
+  @HiveField(2)
   String get task => throw _privateConstructorUsedError;
+  @HiveField(3)
   CategoryModel get category => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +39,11 @@ abstract class $TodoCopyWith<$Res> {
   factory $TodoCopyWith(Todo value, $Res Function(Todo) then) =
       _$TodoCopyWithImpl<$Res, Todo>;
   @useResult
-  $Res call({String id, String date, String task, CategoryModel category});
+  $Res call(
+      {@HiveField(0) String id,
+      @HiveField(1) String date,
+      @HiveField(2) String task,
+      @HiveField(3) CategoryModel category});
 
   $CategoryModelCopyWith<$Res> get category;
 }
@@ -93,7 +101,11 @@ abstract class _$$_TodoCopyWith<$Res> implements $TodoCopyWith<$Res> {
       __$$_TodoCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String date, String task, CategoryModel category});
+  $Res call(
+      {@HiveField(0) String id,
+      @HiveField(1) String date,
+      @HiveField(2) String task,
+      @HiveField(3) CategoryModel category});
 
   @override
   $CategoryModelCopyWith<$Res> get category;
@@ -138,24 +150,28 @@ class __$$_TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res, _$_Todo>
 @JsonSerializable()
 class _$_Todo implements _Todo {
   const _$_Todo(
-      {this.id = "",
-      this.date = "",
-      this.task = "",
-      this.category = const CategoryModel()});
+      {@HiveField(0) this.id = "",
+      @HiveField(1) this.date = "",
+      @HiveField(2) this.task = "",
+      @HiveField(3) this.category = const CategoryModel()});
 
   factory _$_Todo.fromJson(Map<String, dynamic> json) => _$$_TodoFromJson(json);
 
   @override
   @JsonKey()
+  @HiveField(0)
   final String id;
   @override
   @JsonKey()
+  @HiveField(1)
   final String date;
   @override
   @JsonKey()
+  @HiveField(2)
   final String task;
   @override
   @JsonKey()
+  @HiveField(3)
   final CategoryModel category;
 
   @override
@@ -195,20 +211,24 @@ class _$_Todo implements _Todo {
 
 abstract class _Todo implements Todo {
   const factory _Todo(
-      {final String id,
-      final String date,
-      final String task,
-      final CategoryModel category}) = _$_Todo;
+      {@HiveField(0) final String id,
+      @HiveField(1) final String date,
+      @HiveField(2) final String task,
+      @HiveField(3) final CategoryModel category}) = _$_Todo;
 
   factory _Todo.fromJson(Map<String, dynamic> json) = _$_Todo.fromJson;
 
   @override
+  @HiveField(0)
   String get id;
   @override
+  @HiveField(1)
   String get date;
   @override
+  @HiveField(2)
   String get task;
   @override
+  @HiveField(3)
   CategoryModel get category;
   @override
   @JsonKey(ignore: true)

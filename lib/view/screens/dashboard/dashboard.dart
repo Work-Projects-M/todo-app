@@ -1,7 +1,7 @@
 /*
 
   Created by: Bakhromjon Polat
-  Created on: Apr 22 2023 10:08:39
+  Created on: Apr 21 2023 20:56:51
   Github:   https://github.com/BahromjonPolat
   Leetcode: https://leetcode.com/BahromjonPolat/
   LinkedIn: https://linkedin.com/in/bahromjon-polat
@@ -10,9 +10,4 @@
   Documentation: 
 
 */
-
-class HiveAdapters {
-  const HiveAdapters._();
-  static const String todoAdapter = 'TodoAdapter';
-  static const String categoryAdapter = 'CategoryAdapter';
-}
+export 'dashboard_screen.dart';
