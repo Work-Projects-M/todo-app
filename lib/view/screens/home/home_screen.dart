@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: SvgPicture.asset(AppIcons.add),
         onPressed: () {},
       ),
-      bottomNavigationBar: AppBottomNavBar(),
+      bottomNavigationBar: const AppBottomNavBar(),
     );
   }
 }
