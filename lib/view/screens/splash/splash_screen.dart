@@ -12,8 +12,10 @@
 */
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:todo/core/constants/app_colors.dart';
 import 'package:todo/core/constants/app_icons.dart';
 import 'package:todo/view/widgets/empty_widget.dart';
+import 'package:todo/view/widgets/widgets.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -23,14 +25,25 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
-          EmptyWidget(
+        children: [
+          const Spacer(),
+          const EmptyWidget(
             image: AppIcons.splash,
             title: 'Reminders made simple',
             space: 113.0,
           ),
+          const Spacer(),
+          PrimaryButton(
+            label: 'Get started',
+            onPressed: _onPressed,
+            linearGradient: AppColors.linearGreen,
+            margin: const EdgeInsets.symmetric(horizontal: 55.0),
+          ),
+          const SizedBox(height: 92.0),
         ],
       ),
     );
   }
+
+  void _onPressed() {}
 }
