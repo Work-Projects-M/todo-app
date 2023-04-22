@@ -29,6 +29,11 @@ class RouteGenerator {
           child: const SplashScreen(),
           routeName: RouteNames.initial,
         );
+      case RouteNames.home:
+        return _FadeRoute(
+          child: const HomeScreen(),
+          routeName: RouteNames.initial,
+        );
       default:
         return null;
     }

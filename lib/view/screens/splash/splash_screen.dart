@@ -14,6 +14,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:todo/core/constants/app_colors.dart';
 import 'package:todo/core/constants/app_icons.dart';
+import 'package:todo/hive/hive.dart';
+import 'package:todo/routing/routing.dart';
 import 'package:todo/view/widgets/empty_widget.dart';
 import 'package:todo/view/widgets/widgets.dart';
 
@@ -45,5 +47,8 @@ class SplashScreen extends StatelessWidget {
     );
   }
 
-  void _onPressed() {}
+  void _onPressed() async {
+    await AppPref.setBool(key: PrefKeys.started, value: true);
+    AppNavigator.pushNamedAndRemoveUntil(RouteNames.home);
+  }
 }
