@@ -70,9 +70,7 @@ class AppFormatter {
   }
 
   static String setDay(DateTime date) {
-    String now = formatDate(DateTime.now(), pattern: 'dd.mm.yyyy');
-
-    return now == formatDate(date, pattern: 'dd.mm.yyyy') ? 'Today' : '';
+    return isToday(date) ? 'Today' : '';
   }
 
   static String formatDateFromMills(int mills, {String pattern = "MM yyyy"}) {
@@ -81,6 +79,12 @@ class AppFormatter {
       DateTime.fromMillisecondsSinceEpoch(mills),
       pattern: pattern,
     );
+  }
+
+  static bool isToday(DateTime date) {
+    final now = DateTime.now();
+    final today = DateTime(now.year, now.month, now.day);
+    return DateTime(date.year, date.month, date.day) == today;
   }
 
   static String getMonthName(int month) {

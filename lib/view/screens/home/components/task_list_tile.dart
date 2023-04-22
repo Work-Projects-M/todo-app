@@ -99,6 +99,9 @@ class TaskListTile extends StatelessWidget {
             IconButton(
               splashRadius: 24.0,
               onPressed: () async {
+                if (DateTime.now().millisecondsSinceEpoch > todo.date) {
+                  return;
+                }
                 await TodoHive.updateTask(
                   todo.copyWith(isActive: !todo.isActive),
                 );

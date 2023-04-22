@@ -18,9 +18,11 @@ import 'package:todo/blocs/blocs.dart';
 import 'package:todo/blocs/bottom_nav_bar/bottom_nav_bar_bloc.dart';
 import 'package:todo/core/constants/app_colors.dart';
 import 'package:todo/core/constants/app_icons.dart';
+import 'package:todo/hive/hive.dart';
 import 'package:todo/services/notification_service.dart';
 import 'package:todo/view/screens/dashboard/components/app_bottom_nav_bar.dart';
 import 'package:todo/view/screens/home/home_page.dart';
+import 'package:todo/view/screens/new_task/components/new_task_bottom_sheet.dart';
 import 'package:todo/view/screens/new_task/new_task_page.dart';
 import 'package:todo/view/screens/task/task_page.dart';
 import 'package:todo/view/widgets/home_app_bar.dart';
@@ -49,28 +51,17 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     int index = context.watch<BottomNavBarBloc>().state.index;
+    int taskCount = TodoHive.getCountTasksOfToday();
     return Scaffold(
       key: _scaffoldKey,
-      appBar: const HomeAppBar(
-        title: 'Hello Brenda! \nToday you have 9 tasks',
+      appBar: HomeAppBar(
+        title: 'Hello Brenda! \nToday you have $taskCount tasks',
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         child: SvgPicture.asset(AppIcons.add),
         onPressed: () {
-          _scaffoldKey.currentState?.showBottomSheet(
-            (context) => BlocProvider(
-              create: (context) => NewTaskBloc(),
-              child: const NewTaskPage(),
-            ),
-            elevation: 5.0,
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(50.0),
-                topLeft: Radius.circular(50.0),
-              ),
-            ),
-          );
+          NewTaskBottomSheet(_scaffoldKey).show();
         },
       ),
       body: _pages[index],

@@ -155,4 +155,13 @@ class NotificationService {
     Log.d(id.hashCode, name: 'notification_service');
     _flutterLocalNotificationsPlugin.cancel(id);
   }
+
+  static Future<void> pendingRequests() async {
+    final pending =
+        await _flutterLocalNotificationsPlugin.pendingNotificationRequests();
+
+    for (var p in pending) {
+      Log.d('${p.id} | ${p.title} | ${p.body}', name: 'notification_service');
+    }
+  }
 }

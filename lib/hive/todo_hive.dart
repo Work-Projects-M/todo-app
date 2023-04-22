@@ -11,6 +11,7 @@
 
 */
 import 'package:hive/hive.dart';
+import 'package:todo/core/utils/app_formatter.dart';
 import 'package:todo/hive/hive.dart';
 import 'package:todo/models/todo/todo.dart';
 
@@ -32,5 +33,15 @@ class TodoHive {
 
   static List<Todo> getTasksByCategory(String categoryId) {
     return box.values.where((task) => task.categoryId == categoryId).toList();
+  }
+
+  static int getCountTasksOfToday() {
+    return box.values
+        .where(
+          (task) => AppFormatter.isToday(
+            DateTime.fromMillisecondsSinceEpoch(task.date),
+          ),
+        )
+        .length;
   }
 }
