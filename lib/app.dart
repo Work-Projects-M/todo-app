@@ -13,6 +13,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo/blocs/bottom_nav_bar/bottom_nav_bar_bloc.dart';
 import 'package:todo/core/theme/app_theme.dart';
+import 'package:todo/hive/hive.dart';
 import 'package:todo/routing/app_navigator.dart';
 import 'package:todo/routing/app_route_name.dart';
 import 'package:todo/routing/route_generator.dart';
@@ -30,7 +31,9 @@ class AppWidget extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'TODO',
         theme: getApplicationTheme(),
-        initialRoute: RouteNames.initial,
+        initialRoute: AppPref.getBool(PrefKeys.started)
+            ? RouteNames.home
+            : RouteNames.initial,
         onGenerateRoute: RouteGenerator.onGenerateRoute,
         navigatorKey: AppNavigator.navigatorKey,
       ),

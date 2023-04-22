@@ -18,9 +18,9 @@ class TodoAdapter extends TypeAdapter<Todo> {
     };
     return Todo(
       id: fields[0] as String,
-      date: fields[1] as String,
+      date: fields[1] as int,
       task: fields[2] as String,
-      category: fields[3] as CategoryModel,
+      isActive: fields[4] as dynamic,
     );
   }
 
@@ -34,8 +34,8 @@ class TodoAdapter extends TypeAdapter<Todo> {
       ..write(obj.date)
       ..writeByte(2)
       ..write(obj.task)
-      ..writeByte(3)
-      ..write(obj.category);
+      ..writeByte(4)
+      ..write(obj.isActive);
   }
 
   @override
@@ -55,8 +55,9 @@ class TodoAdapter extends TypeAdapter<Todo> {
 
 _$_Todo _$$_TodoFromJson(Map<String, dynamic> json) => _$_Todo(
       id: json['id'] as String? ?? "",
-      date: json['date'] as String? ?? "",
+      date: json['date'] as int? ?? 0,
       task: json['task'] as String? ?? "",
+      isActive: json['isActive'] ?? true,
       category: json['category'] == null
           ? const CategoryModel()
           : CategoryModel.fromJson(json['category'] as Map<String, dynamic>),
@@ -66,5 +67,6 @@ Map<String, dynamic> _$$_TodoToJson(_$_Todo instance) => <String, dynamic>{
       'id': instance.id,
       'date': instance.date,
       'task': instance.task,
+      'isActive': instance.isActive,
       'category': instance.category,
     };

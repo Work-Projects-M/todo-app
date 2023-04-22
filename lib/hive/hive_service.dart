@@ -25,5 +25,6 @@ class HiveService {
 
     await Hive.openBox(HiveBoxNames.pref);
     await Hive.openBox<Todo>(HiveBoxNames.todo);
+    await Hive.openBox<CategoryModel>(HiveBoxNames.category);
   }
 }

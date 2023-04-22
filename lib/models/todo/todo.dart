@@ -24,9 +24,10 @@ part 'todo.freezed.dart';
 class Todo with _$Todo {
   const factory Todo({
     @HiveField(0) @Default("") String id,
-    @HiveField(1) @Default("") String date,
+    @HiveField(1) @Default(0) int date,
     @HiveField(2) @Default("") String task,
-    @HiveField(3) @Default(CategoryModel()) CategoryModel category,
+    @HiveField(4) @Default(true) isActive,
+    @Default(CategoryModel()) CategoryModel category,
   }) = _Todo;
 
   factory Todo.fromJson(Map<String, dynamic> json) => _$TodoFromJson(json);

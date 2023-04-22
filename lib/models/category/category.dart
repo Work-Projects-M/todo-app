@@ -26,6 +26,7 @@ class CategoryModel with _$CategoryModel {
     @HiveField(1) @Default("") String name,
     @HiveField(2) @Default("") String icon,
     @HiveField(3) @Default(0) int color,
+    @HiveField(4) @Default(0) int count,
   }) = _Category;
 
   factory CategoryModel.fromJson(Map<String, dynamic> json) =>

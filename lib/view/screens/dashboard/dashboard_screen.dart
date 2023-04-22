@@ -18,6 +18,7 @@ import 'package:todo/blocs/bottom_nav_bar/bottom_nav_bar_bloc.dart';
 import 'package:todo/core/constants/app_icons.dart';
 import 'package:todo/view/screens/dashboard/components/app_bottom_nav_bar.dart';
 import 'package:todo/view/screens/home/home_page.dart';
+import 'package:todo/view/screens/task/task_page.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -34,7 +35,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     super.initState();
     _pages = [
       const HomePage(),
-      Container(),
+      const TaskPage(),
     ];
   }
 

@@ -28,6 +28,8 @@ mixin _$CategoryModel {
   String get icon => throw _privateConstructorUsedError;
   @HiveField(3)
   int get color => throw _privateConstructorUsedError;
+  @HiveField(4)
+  int get count => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,7 +47,8 @@ abstract class $CategoryModelCopyWith<$Res> {
       {@HiveField(0) String id,
       @HiveField(1) String name,
       @HiveField(2) String icon,
-      @HiveField(3) int color});
+      @HiveField(3) int color,
+      @HiveField(4) int count});
 }
 
 /// @nodoc
@@ -65,6 +68,7 @@ class _$CategoryModelCopyWithImpl<$Res, $Val extends CategoryModel>
     Object? name = null,
     Object? icon = null,
     Object? color = null,
+    Object? count = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -83,6 +87,10 @@ class _$CategoryModelCopyWithImpl<$Res, $Val extends CategoryModel>
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as int,
+      count: null == count
+          ? _value.count
+          : count // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -99,7 +107,8 @@ abstract class _$$_CategoryCopyWith<$Res>
       {@HiveField(0) String id,
       @HiveField(1) String name,
       @HiveField(2) String icon,
-      @HiveField(3) int color});
+      @HiveField(3) int color,
+      @HiveField(4) int count});
 }
 
 /// @nodoc
@@ -117,6 +126,7 @@ class __$$_CategoryCopyWithImpl<$Res>
     Object? name = null,
     Object? icon = null,
     Object? color = null,
+    Object? count = null,
   }) {
     return _then(_$_Category(
       id: null == id
@@ -135,6 +145,10 @@ class __$$_CategoryCopyWithImpl<$Res>
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as int,
+      count: null == count
+          ? _value.count
+          : count // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -146,7 +160,8 @@ class _$_Category implements _Category {
       {@HiveField(0) this.id = "",
       @HiveField(1) this.name = "",
       @HiveField(2) this.icon = "",
-      @HiveField(3) this.color = 0});
+      @HiveField(3) this.color = 0,
+      @HiveField(4) this.count = 0});
 
   factory _$_Category.fromJson(Map<String, dynamic> json) =>
       _$$_CategoryFromJson(json);
@@ -167,10 +182,14 @@ class _$_Category implements _Category {
   @JsonKey()
   @HiveField(3)
   final int color;
+  @override
+  @JsonKey()
+  @HiveField(4)
+  final int count;
 
   @override
   String toString() {
-    return 'CategoryModel(id: $id, name: $name, icon: $icon, color: $color)';
+    return 'CategoryModel(id: $id, name: $name, icon: $icon, color: $color, count: $count)';
   }
 
   @override
@@ -181,12 +200,13 @@ class _$_Category implements _Category {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.icon, icon) || other.icon == icon) &&
-            (identical(other.color, color) || other.color == color));
+            (identical(other.color, color) || other.color == color) &&
+            (identical(other.count, count) || other.count == count));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, icon, color);
+  int get hashCode => Object.hash(runtimeType, id, name, icon, color, count);
 
   @JsonKey(ignore: true)
   @override
@@ -207,7 +227,8 @@ abstract class _Category implements CategoryModel {
       {@HiveField(0) final String id,
       @HiveField(1) final String name,
       @HiveField(2) final String icon,
-      @HiveField(3) final int color}) = _$_Category;
+      @HiveField(3) final int color,
+      @HiveField(4) final int count}) = _$_Category;
 
   factory _Category.fromJson(Map<String, dynamic> json) = _$_Category.fromJson;
 
@@ -223,6 +244,9 @@ abstract class _Category implements CategoryModel {
   @override
   @HiveField(3)
   int get color;
+  @override
+  @HiveField(4)
+  int get count;
   @override
   @JsonKey(ignore: true)
   _$$_CategoryCopyWith<_$_Category> get copyWith =>

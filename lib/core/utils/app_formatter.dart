@@ -45,6 +45,11 @@ class AppFormatter {
         formatted = "$month $year";
         break;
 
+      case 'hh.mm f':
+        String midday = date.hour > 12 ? 'PM' : 'AM';
+        formatted = '$hh.$mm $midday';
+        break;
+
       default:
         formatted = '$day/$month/$year $hh:$mm';
     }
