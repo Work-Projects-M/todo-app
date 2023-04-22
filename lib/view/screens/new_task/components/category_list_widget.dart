@@ -40,43 +40,44 @@ class CategoryListWidget extends StatelessWidget {
         itemBuilder: (context, index) {
           CategoryModel category = categories[index];
           bool isTheSame = category == selectedCategory;
-          return InkWell(
-            onTap: () => onCategorySelected.call(category),
-            child: Container(
-              height: 27.0,
-              padding: const EdgeInsets.symmetric(
-                horizontal: 8.0,
-                vertical: 4.0,
-              ),
-              decoration: BoxDecoration(
-                color: isTheSame ? Color(category.color) : Colors.transparent,
-                borderRadius: BorderRadius.circular(4.0),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Visibility(
-                    visible: !isTheSame,
-                    child: Row(
-                      children: [
-                        CircleAvatar(
-                          radius: 5.0,
-                          backgroundColor: Color(category.color),
-                        ),
-                        const SizedBox(width: 5.0),
-                      ],
-                    ),
-                  ),
-                  Text(
-                    category.name,
-                    style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                          color: isTheSame ? AppColors.white : AppColors.black,
-                        ),
-                  ),
-                ],
-              ),
+          return Container(
+            height: 27.0,
+            padding: const EdgeInsets.symmetric(
+              horizontal: 8.0,
+              vertical: 4.0,
             ),
+            decoration: BoxDecoration(
+              color: isTheSame ? Color(category.color) : Colors.transparent,
+              borderRadius: BorderRadius.circular(4.0),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Visibility(
+                  visible: !isTheSame,
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        radius: 5.0,
+                        backgroundColor: Color(category.color),
+                      ),
+                      const SizedBox(width: 5.0),
+                    ],
+                  ),
+                ),
+                Text(
+                  category.name,
+                  style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                        color: isTheSame ? AppColors.white : AppColors.black,
+                      ),
+                ),
+              ],
+            ),
+          ).onClick(
+            onClick: () {
+              onCategorySelected.call(category);
+            },
           );
         },
       ),

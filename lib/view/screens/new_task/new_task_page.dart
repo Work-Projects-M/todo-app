@@ -18,6 +18,7 @@ import 'package:todo/core/constants/app_colors.dart';
 import 'package:todo/core/utils/logger.dart';
 import 'package:todo/hive/hive.dart';
 import 'package:todo/view/screens/new_task/components/category_list_widget.dart';
+import 'package:todo/view/widgets/widgets.dart';
 
 class NewTaskPage extends StatefulWidget {
   const NewTaskPage({super.key});
@@ -60,6 +61,12 @@ class _NewTaskPageState extends State<NewTaskPage> {
                     },
                   ),
                   const Divider(),
+                  PrimaryButton(
+                    label: 'Add task',
+                    onPressed: () {},
+                    linearGradient: AppColors.linearBlue,
+                    margin: EdgeInsets.zero,
+                  )
                 ],
               ),
             );
