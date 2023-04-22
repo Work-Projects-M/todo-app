@@ -27,4 +27,19 @@ class AppColors {
   static const Color blue = Color(0xFF7EB6FF);
   static const Color deepBlue = Color(0xFF5F87E7);
   static const Color orange = Color(0xFFEC6C0B);
+  static const Color black = Color(0xFF373737);
+  static const Color white = Color(0xFFFFFFFF);
+  static const Color whiteF3 = Color(0xFFF3F3F3);
+  static const Color lightGrey = Color(0xFFD9D9D9);
+
+  static const LinearGradient linearGreen = LinearGradient(
+    colors: [lightGreen, green],
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
+  );
+  static const LinearGradient linearBlue = LinearGradient(
+    colors: [blue, deepBlue],
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
+  );
 }

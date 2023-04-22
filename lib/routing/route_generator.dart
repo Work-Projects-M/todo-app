@@ -13,6 +13,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:todo/view/screens/home/home.dart';
+import 'package:todo/view/screens/splash/splash_screen.dart';
 
 import 'app_route_name.dart';
 import 'package:todo/core/core.dart';
@@ -25,7 +26,7 @@ class RouteGenerator {
     switch (routingData?.route) {
       case RouteNames.initial:
         return _FadeRoute(
-          child: const HomeScreen(),
+          child: const SplashScreen(),
           routeName: RouteNames.initial,
         );
       default:
