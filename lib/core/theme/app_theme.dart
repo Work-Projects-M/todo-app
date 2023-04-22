@@ -31,5 +31,9 @@ ThemeData getApplicationTheme() {
         fontWeight: FontWeight.w500,
       ),
     ),
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
+      backgroundColor: AppColors.pink,
+      elevation: 5.0,
+    ),
   );
 }

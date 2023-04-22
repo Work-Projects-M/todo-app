@@ -12,6 +12,9 @@
 */
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:todo/core/constants/app_icons.dart';
+import 'package:todo/view/screens/home/components/app_bottom_nav_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -23,6 +26,13 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        child: SvgPicture.asset(AppIcons.add),
+        onPressed: () {},
+      ),
+      bottomNavigationBar: AppBottomNavBar(),
+    );
   }
 }
