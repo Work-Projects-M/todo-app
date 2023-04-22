@@ -22,6 +22,10 @@ class TodoHive {
     await box.put(todo.id, todo);
   }
 
+  static Future<void> updateTask(Todo todo) async {
+    await box.put(todo.id, todo);
+  }
+
   static Future<void> deleteTask(String id) async {
     await box.delete(id);
   }

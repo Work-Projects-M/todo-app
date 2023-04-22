@@ -41,7 +41,6 @@ class BottomBarItem extends StatelessWidget {
                 );
           },
           child: Container(
-            margin: const EdgeInsets.symmetric(vertical: 4.0),
             padding: const EdgeInsets.all(16.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,

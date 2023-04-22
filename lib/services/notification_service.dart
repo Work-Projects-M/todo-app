@@ -101,6 +101,7 @@ class NotificationService {
   static Future<void> showTimeZonedNotification(
     Todo todo,
   ) async {
+    Log.d(todo.id.hashCode, name: 'notification_service');
     tz.initializeTimeZones();
 
     tz.Location location = tz.getLocation("Asia/Tashkent");
@@ -109,7 +110,7 @@ class NotificationService {
       todo.date,
     );
     _flutterLocalNotificationsPlugin.zonedSchedule(
-      todo.hashCode,
+      todo.id.hashCode,
       todo.categoryName,
       todo.task,
       dateTime,
@@ -148,5 +149,10 @@ class NotificationService {
 
   static Future<void> cancelAll() async {
     await _flutterLocalNotificationsPlugin.cancelAll();
+  }
+
+  static Future<void> cancel(int id) async {
+    Log.d(id.hashCode, name: 'notification_service');
+    _flutterLocalNotificationsPlugin.cancel(id);
   }
 }

@@ -11,6 +11,8 @@
 
 */
 
+import 'logger.dart';
+
 class AppFormatter {
   const AppFormatter._();
 
@@ -53,7 +55,11 @@ class AppFormatter {
       case 'dd hh:mm':
         String d = setDay(date);
 
-        formatted = '$d $hh:$mm';
+        formatted = '$d, $hh:$mm';
+        break;
+      case 'dd dd-mm-yyyy':
+        String d = setDay(date);
+        formatted = d == 'Today' ? d : '$d $day-$month-$year';
         break;
 
       default:
@@ -64,8 +70,9 @@ class AppFormatter {
   }
 
   static String setDay(DateTime date) {
-    String now = formatDate(DateTime.now());
-    return now == formatDate(date) ? 'Today,' : '';
+    String now = formatDate(DateTime.now(), pattern: 'dd.mm.yyyy');
+
+    return now == formatDate(date, pattern: 'dd.mm.yyyy') ? 'Today' : '';
   }
 
   static String formatDateFromMills(int mills, {String pattern = "MM yyyy"}) {

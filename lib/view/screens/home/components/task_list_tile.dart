@@ -21,6 +21,7 @@ import 'package:todo/core/extensions/extensions.dart';
 import 'package:todo/core/utils/app_formatter.dart';
 import 'package:todo/hive/hive.dart';
 import 'package:todo/models/models.dart';
+import 'package:todo/services/notification_service.dart';
 
 class TaskListTile extends StatelessWidget {
   final Todo todo;
@@ -97,11 +98,26 @@ class TaskListTile extends StatelessWidget {
             ),
             IconButton(
               splashRadius: 24.0,
-              onPressed: () {},
+              onPressed: () async {
+                await TodoHive.updateTask(
+                  todo.copyWith(isActive: !todo.isActive),
+                );
+
+                if (todo.isActive) {
+                  NotificationService.showTimeZonedNotification(todo);
+                } else {
+                  NotificationService.cancel(todo.id.hashCode);
+                }
+              },
               icon: SvgPicture.asset(
                 AppIcons.bell2,
-                colorFilter:
-                    const ColorFilter.mode(AppColors.amber, BlendMode.srcIn),
+                colorFilter: ColorFilter.mode(
+                  (todo.isActive &&
+                          DateTime.now().millisecondsSinceEpoch < todo.date)
+                      ? AppColors.amber
+                      : AppColors.grey,
+                  BlendMode.srcIn,
+                ),
               ),
             )
           ],
